@@ -18,6 +18,8 @@ Plug 'kien/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
+Plug 'posva/vim-vue'
+Plug 'flrnprz/plastic.vim'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -41,8 +43,18 @@ set number relativenumber
 " Space tabs of 2
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 
+" Background
+set background=dark
+
 " Syntax
 syntax on
 
 " Colorscheme
-colorscheme darkblue
+" colorscheme delek
+colorscheme plastic
+
+" Lightline
+let g:lightline = { 'colorscheme': 'plastic' }
+
+" Vue autosyntax
+autocmd FileType vue syntax sync fromstart
