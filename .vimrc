@@ -34,8 +34,14 @@ map <C-n> :NERDTreeToggle<CR>
 " Airline Theme
 let g:airline_theme='deus'
 
-" Ignore node modules on ctrlp
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+" Ignore things on ctrlp
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.yardoc\|node_modules\|log\|tmp$',
+  \ 'file': '\v\.(exe|so|dll|meta|.DS_Store)$',
+  \ }
 
 " Enable hybrid numbers
 set number relativenumber
